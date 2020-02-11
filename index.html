@@ -152,32 +152,94 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-在Mac下用Hexo搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
+      <a class="article-title" href="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">在Mac下用Hexo搭建个人博客</a>
     </h1>
   
 
         
-        <a href="/2020/02/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-02-09T01:36:37.064Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
+        <a href="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
+  	<time datetime="2020-02-10T14:48:23.067Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Hexo是一个快速、简洁且高效的博客框架，特别适合于部署静态的博客网站，更多介绍请移步<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">官方文档</a>。本文主要记录下笔者在Mac上实际的部署流程，包含期间遇到的坑与一些基本用法的介绍。</p>
+<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><hr>
+<p>安装<strong>hexo</strong>之前先要安装<strong>Git</strong>和<strong>Node.js</strong></p>
+<h2 id="1-Git"><a href="#1-Git" class="headerlink" title="1.Git"></a>1.Git</h2><p>在<strong>Mac</strong>上安装<strong>Git</strong>最方便的方式是使用<strong>Homebrew</strong>，它是<strong>Mac</strong>上的一种包管理工具，能方便地安装和卸载软件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install git</span><br></pre></td></tr></table></figure>
+
+<p>安装结束后使用<code>git --version</code>查看Git的版本，如果显示版本号则表示安装成功。</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/git.png" alt="git"></p>
+<h2 id="2-Node-js"><a href="#2-Node-js" class="headerlink" title="2.Node.js"></a>2.Node.js</h2><p><strong>Node</strong>是<strong>javascript</strong>的一种运行时环境，也是近年来非常流行的一门技术。</p>
+<p>首先我们去Node.js的<a href="https://nodejs.org/en/" target="_blank" rel="noopener">官方网站</a>下载<strong>12.15.0 LTS</strong>版本</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/node.js.png" alt="node.js"></p>
+<p>等下载安装完成之后我们进入终端输入<code>node -v</code>来查看<strong>Node</strong>的版本号，如果显示版本号，则表示安装成功。</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/node.png" alt="node"></p>
+<h3 id="NPM换源操作"><a href="#NPM换源操作" class="headerlink" title="NPM换源操作"></a><strong>NPM</strong>换源操作</h3><p><strong>NPM</strong>（node package manager）是nodejs的包管理工具，用于node插件管理（包括安装、卸载、管理依赖等）, NPM是随同NodeJS一起安装的包管理工具。由于<strong>npm</strong>的服务器在国外可能导致下载速率过慢，所以我们安装淘宝的国内镜像源<strong>cnpm</strong>，我们在终端输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  npm install -g --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>到这里，我们的换源操作就成功了。</p>
 <hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
+<h2 id="3-Hexo的安装"><a href="#3-Hexo的安装" class="headerlink" title="3.Hexo的安装"></a>3.<strong>Hexo</strong>的安装</h2><p>完成准备工作后，可以正式开始安装<strong>Hexo</strong>。在命令行输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>等待安装完成后，我们可以在终端输入<code>hexo --version</code>来查看版本号。</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/hexo%E7%89%88%E6%9C%AC.png" alt></p>
 <hr>
-<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p>内容</p>
+<h2 id="4-使用Hexo"><a href="#4-使用Hexo" class="headerlink" title="4.使用Hexo"></a>4.使用<strong>Hexo</strong></h2><p><strong>Hexo</strong>默认已经配置好了基本的选项，通过以下几步简单的操作就可以获得一个示例的博客网站。</p>
+<p>终端切换到一个你准备用来搭建博客的目录，然后执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
+
+<p>其中<strong>blog</strong>将会作为博客网站的本地主目录，该命令对文件夹进行了初始化，生成了一些建设网站所必须的材料。切换到<strong>blog</strong>文件夹下，执行以下命令<code>hexo s</code></p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/4.png" alt></p>
+<p>该信息表示<strong>Hexo</strong>服务器已经在本地的<strong>4000</strong>端口运行了。打开任意浏览器，在地址栏输入<strong>localhost:4000</strong>后回车，即可看到默认的欢迎页面。</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/hello.png" alt></p>
 <hr>
+<h2 id="5-将blog部署到自己的github上"><a href="#5-将blog部署到自己的github上" class="headerlink" title="5.将blog部署到自己的github上"></a>5.将<strong>blog</strong>部署到自己的<strong>github</strong>上</h2><p>现在我们已在把网站在本地搭起来了，为了让别人能通过互联网访问我们的网站，还需要将其发布到网络上，这里我们以发布到<strong>github</strong>上为例。</p>
+<p>首先，我们需要进入<a href="https://github.com/" target="_blank" rel="noopener">github</a>的官网登录自己的账号，然后点击左上角的<strong>+</strong>号图标新建一个仓库</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/github.png" alt></p>
+<p>仓库名称固定为<code>yourNickName.github.io</code>其中<strong>yourNickName</strong>指的是你的<strong>github</strong>账户昵称，注意必须按照这个规则来命名。</p>
+<p>然后我们在<strong>blog</strong>目录下安装<strong>git</strong>的部署插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<p>最后我们编辑<strong>myblog/_config.yml</strong>文件，在文件的最后几行找到<strong>deploy</strong>设置项，按照下面的方式进行修改</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E9%85%8D%E7%BD%AE1.png" alt></p>
+<p>修改完成后，在<strong>blog</strong>目录下运行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p>然后根据提示输入你的<strong>github</strong>的账号以及密码，<strong>Hexo</strong>会先在本地生成静态的网页文件，然后将所有文件推送到<strong>github</strong>上对应的项目中。一切正常的话，我们就可以通过下面的网址访问个人博客，应该能看到和本地一样的效果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://yourNickName.github.io</span><br></pre></td></tr></table></figure>
+
+<p>到此，我们就算是真的搭建好一个简单的博客网站了，赶快请你的小伙伴们来看看吧~</p>
+<hr>
+<h2 id="6-更多设置"><a href="#6-更多设置" class="headerlink" title="6.更多设置"></a>6.更多设置</h2><h3 id="6-1修改配置"><a href="#6-1修改配置" class="headerlink" title="6.1修改配置"></a>6.1修改配置</h3><p>默认页面上信息都是关于<strong>Hexo</strong>的，我们要将其改为自己的信息。在<strong>myblog</strong>目录下，使用<strong>ls</strong>命令查看该目录下的所有文件</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/3.png" alt></p>
+<p>其中<strong>_config.yml</strong>保存了与网站相关的基本配置。使用<strong>vim</strong>打开，可以看到如下信息</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/2.png" alt></p>
+<p>最开始的部分就是关于网站的标题、作者和简介等信息，这里可以根据个人的情况填写，其中<strong>language</strong>那一栏填写<strong>zh-Hans</strong>表示网站采用简体中文。<strong>填写时注意各个字段的冒号后必须要空一格再填具体内容</strong>，填写完毕后保存即可。</p>
+<p>接着我们来看一下<strong>Hexo</strong>中一项很实用也很强大的工具，那就是<strong>主题</strong>。大家之所以喜欢写个人博客，一个很重要的原因就是它的自由性，我们可以往博客上添加任何个人喜欢的元素，也可以根据自己的喜好来定制网站的背景、样式、配色等。<strong>Hexo</strong>为我们修改网站的风格提供了一种非常便捷的方法，只需要简单的几步，就可以将我们的网站修改成一种指定的风格，我们还可以自己定制喜欢的模板。下面就以<strong>github</strong>上的<strong>yilia</strong>为例,我们进入<strong>blog</strong>目录，通过<strong>git</strong>下载<strong>yilia</strong>主题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git themes&#x2F;yilia</span><br></pre></td></tr></table></figure>
+
+<p>下载完成后我们进入<strong>themes</strong>目录，通过<code>ls -l</code>我们可以看到我们下载的所有blog主题全部都在这个文件夹下，如果需要对主题的页面进行修改，只需要进入相对应的主题文件进行修改即可</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/themels.png" alt></p>
+<p>然后回到<strong>blog</strong>目录下，通过编辑<strong>myblog/_config.yml</strong>文件，在文件中找到<strong>theme</strong>选项，按照下面的方式进行修改</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/themeconfig.png" alt></p>
+<p>修改完成后，在<strong>blog</strong>目录下运行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean(清除缓存文件)</span><br><span class="line">$ hexo g(生成网站静态文件到默认设置的 public 文件夹)</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<p>打开任意浏览器，在地址栏输入<strong>localhost:4000</strong>后回车，就可以看到我们的主题就更换成功了。</p>
+<p><img src="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/theme.png" alt></p>
+<p>title: 在Mac下用Hexo搭建个人博客<br>date: 2020-02-10 22:48:23<br>tags:</p>
 
       
 
@@ -190,82 +252,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/09/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/09/hello-world/" class="archive-article-date">
-  	<time datetime="2020-02-09T01:26:59.537Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/09/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/02/10/%E5%9C%A8Mac%E4%B8%8B%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
         </p>
       
 
